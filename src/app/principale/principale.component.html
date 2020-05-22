@@ -1,0 +1,39 @@
+<button class="btn btn-default" type="button" (click)="onSave()">
+  Enregistrer
+</button>
+<button class="btn btn-default" type="button" (click)="onFetch()">
+  Récupérer
+</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form  (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">firstName:</label>
+          <input type="text" class="form-control" name="firstName" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">lastName:</label>
+          <select name="lastName" class="form-control" id="lastName" [ngModel]="boukir">
+            
+            <option value="autre">autre</option>
+            <option value="boukir">boukir</option>
+            <option value="autre">hmami</option>
+            <option value="boukir">alaoui</option>
+            <option value="autre">chaoui</option>
+            <option value="boukir">tazi</option>
+            
+          </select>
+        </div>
+        <button class="btn btn-primary pull-right" type="submit" [disabled]="f.invalid">
+          Ajouter
+        </button>
+      </form>
+    </div>
+  </div> 
+  <div class="row">
+    <ul>
+      <li *ngFor="let profil of Profils"><a >{{profil.firstName}} {{profil.lastName | uppercase }}</a></li>
+    </ul>
+  </div>
+</div>
